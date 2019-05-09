@@ -1,5 +1,9 @@
 # XXEGE_PURGE
 
+Description in English: [here](#English).
+
+Description en français : [ici](#Français).
+
 ## English
 
 This project contains a program intended to purge data from a OSB/SOA Suite database instance (Oracle Service Bus/Oracle SOA Suite).
@@ -27,7 +31,6 @@ END;
 We have been using a monitoring strategy inpired from J@n van Zoggel since version 11.1 https://jvzoggel.com/2012/01/18/osb_tracing_report_action, and we have developed this purge program based on Demed L’Her and Sai Sudarsan presentation "Purging strategies in Oracle SOA Suite 11gR1 PS3" and ported it on version 12.2.
 
 
-
 ## Français
 
 Ce projet contient un programme de Purge des données pour OSB/SOA Suite (Oracle Service Bus/Oracle SOA Suite).
@@ -53,5 +56,3 @@ END;
 ### Crédits
 
 Nous utilisons une méthode de trace des messages insprirée de J@n van Zoggel depuis la version 11.1 https://jvzoggel.com/2012/01/18/osb_tracing_report_action, et nous avons développé ce programme en nous basant sur les travaux de Demed L’Her, Sai Sudarsan "Purging strategies in Oracle SOA Suite 11gR1 PS3" puis nous l'avons porté en version 12.2.
-
-
