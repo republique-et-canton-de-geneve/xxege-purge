@@ -34,8 +34,28 @@ create or replace PACKAGE BODY xxege_purge AS
     PROCEDURE purge_soa (
         p_days_retention IN INTEGER DEFAULT 7
     ) AS
+    max_creation_date timestamp;
+    min_creation_date timestamp;
+    batch_size integer;
+    max_runtime integer;
+    retention_period timestamp;
+    composite_name varchar2(500);
+    composite_revision varchar2(50);
+    soa_partition_name varchar2(200);
+    PQS integer;
+    ignore_state boolean; 
     BEGIN
-        soa.delete_instances(SYSDATE - p_days_retention,SYSDATE);
+        min_creation_date := SYSDATE-100; --maybe use more if you plan on purging less frequently
+        max_creation_date := SYSDATE-p_days_retention;
+        max_runtime := 60;
+        batch_size := 1000;
+        soa.delete_instances(
+                            min_creation_date => min_creation_date,
+                            max_creation_date => max_creation_date,
+                            batch_size => batch_size,
+                            max_runtime => max_runtime,
+                            purge_partitioned_component => false
+                            );
     EXCEPTION
         WHEN OTHERS THEN
             log_error('ERROR(purge_soa) ');
